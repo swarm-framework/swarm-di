@@ -3,11 +3,9 @@
 find_dependencies(cxx-log)
 find_dependencies(swarm-commons)
 
-find_package(RapidJSON QUIET)
-
 # Create targets
 add_library(swarm-di
-
+    Sources/swarm/di/Inject.cxx Sources/swarm/di/Inject.hxx Sources/swarm/di/Inject.txx 
 )
 
 # Properties of targets

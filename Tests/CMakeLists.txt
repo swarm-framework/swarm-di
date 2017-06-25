@@ -13,6 +13,7 @@ endif()
 # Create create executable
 add_executable(${PROJECT_NAME}Tests 
     main.cxx
+    swarm/SimpleDiTest.cxx
 )
 target_link_libraries(${PROJECT_NAME}Tests
     ${PROJECT_NAME}

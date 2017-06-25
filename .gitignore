@@ -35,3 +35,8 @@
 build
 swarm-mapping.kdev4
 
+
+.kdev4/
+Dependencies/volatile/
+swarm-di.kdev4
+
