@@ -19,9 +19,15 @@
 #include "Inject.hxx"
 #endif
 
+// FIXME A supprimer
+#include <iostream>
+
 namespace swarm {
     namespace di {
         
+        template<class Object>
+        std::map<std::string, std::shared_ptr<Injectable>> Inject<Object>::applications_;
+            
         template<class Object>
         Inject<Object>::Inject(const std::string & name) : name_(name) {
         }
@@ -29,7 +35,27 @@ namespace swarm {
         // Return 
         template<class Object>
         std::shared_ptr<Object> Inject<Object>::get() {
-            return Object{};
+            
+            // Test injectable
+            if(std::is_base_of<Injectable, Object>::value) {
+                
+                std::cout << "Injectable" << std::endl;
+                
+                // Test application
+                if(std::is_base_of<ApplicationScope, Object>::value) {
+                    std::cout << "Application" << std::endl;
+                    
+                    std::shared_ptr<Injectable> object = Inject<Object>::applications_[name_];
+                    if (!object) {
+                        object = std::make_shared<Object>();
+                        Inject<Object>::applications_[name_] = object; 
+                    }
+                    return std::dynamic_pointer_cast<Object>(object);
+                }
+
+            }
+            
+            return std::make_shared<Object>();
         }
         
         template<class Object>

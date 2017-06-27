@@ -18,8 +18,12 @@
 #ifndef SWARM_DI_INJECT_HXX
 #define SWARM_DI_INJECT_HXX
 
+#include "Injectable.hxx"
 #include <memory>
 #include <string>
+
+// FIXME Move
+#include <map>
 
 namespace swarm {
     namespace di {
@@ -32,6 +36,9 @@ namespace swarm {
             
             /// \brief Injection name
             std::string name_;
+            
+            // FIXME Move
+            static std::map<std::string, std::shared_ptr<Injectable>> applications_;
             
         public:
             
