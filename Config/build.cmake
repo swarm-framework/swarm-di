@@ -7,7 +7,8 @@ find_dependencies(swarm-commons)
 add_library(swarm-di
     Sources/swarm/di/Inject.cxx Sources/swarm/di/Inject.hxx Sources/swarm/di/Inject.txx 
     Sources/swarm/di/Injectable.hxx
-    Sources/swarm/di/Scope.hxx
+    Sources/swarm/di/InjectableEntry.cxx Sources/swarm/di/InjectableEntry.hxx
+    Sources/swarm/di/Scope.cxx Sources/swarm/di/Scope.hxx Sources/swarm/di/Scope.txx
 )
 
 # Properties of targets

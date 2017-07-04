@@ -40,3 +40,5 @@ swarm-mapping.kdev4
 Dependencies/volatile/
 swarm-di.kdev4
 
+.idea/
+cmake-build-debug/

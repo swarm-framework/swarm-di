@@ -15,23 +15,23 @@
  *
  */
 
-#ifndef SWARM_DI_INJECTABLE_HXX
-#define SWARM_DI_INJECTABLE_HXX
+#ifndef SWARM_DI_SCOPE_HXX
+#include "Scope.hxx"
+#endif // SWARM_DI_SCOPE_HXX
 
 namespace swarm {
     namespace di {
 
-        /// \brief Class Scope
-        struct Injectable {
-            virtual ~Injectable(){};
-        };
-
-        /// \brief Request scope, one instant per request (manually opened and closed)
-        struct RequestScope : public Injectable {};
-
-        /// \brief Application scope, one during all application life
-        struct ApplicationScope : public Injectable {};
+            // Get typed injectable object
+            template <class O>
+            std::shared_ptr<O> Scope::get(const InjectableEntry & entry) {
+                return std::dynamic_pointer_cast<O>(get(entry));
+            }
+            
+            // Get typed injectable object
+            template <class O>
+            std::shared_ptr<O> Scope::get(const std::shared_ptr<InjectableEntry> entry) {
+                return get<O>(*entry);
+            }
     }
 }
-
-#endif // SWARM_DI_INJECTABLE_HXX
