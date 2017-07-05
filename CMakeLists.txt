@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.8)
 # Set variables:
 #   * PROJECT_NAME
 #   * PROJECT_VERSION
-project(swarm-mapping VERSION 0.1.0)
+project(swarm-di VERSION 0.1.0)
 
 # Include config
 include(Config/config.cmake)
